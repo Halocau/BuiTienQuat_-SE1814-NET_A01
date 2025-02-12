@@ -48,12 +48,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/C\#/Learn record/BuiTienQuat_ SE1814-NET_A01/BuiTienQuatMVC/Views/NewsArticle/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c0FydGljbGVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/C\#/Learn record/BuiTienQuat_ SE1814-NET_A01/BuiTienQuatMVC/Views/NewsArticle/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c0FydGljbGVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/C\#/Learn record/BuiTienQuat_ SE1814-NET_A01/BuiTienQuatMVC/Views/NewsArticle/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c0FydGljbGVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/C\#/Learn record/BuiTienQuat_ SE1814-NET_A01/BuiTienQuatMVC/Views/NewsArticle/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c0FydGljbGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/C\#/Learn record/BuiTienQuat_ SE1814-NET_A01/BuiTienQuatMVC/Views/NewsArticle/Manager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c0FydGljbGVcTWFuYWdlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/C\#/Learn record/BuiTienQuat_ SE1814-NET_A01/BuiTienQuatMVC/Views/NewsArticle/ReportStatistic.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c0FydGljbGVcUmVwb3J0U3RhdGlzdGljLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/C\#/Learn record/BuiTienQuat_ SE1814-NET_A01/BuiTienQuatMVC/Views/NewsArticle/Search.cshtml]

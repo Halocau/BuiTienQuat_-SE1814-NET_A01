@@ -4,15 +4,19 @@
     ViewData["Title"] = "Tags";
 }
 
-<div class="container mt-3">
-    <h2 class="display-4 mb-4">Tags</h2>
+<div class="container mt-5">
+    <h2 class="display-4 mb-4 text-center text-primary">Tag Management</h2>
 
-    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#createTagModal">
-        Create New Tag
-    </button>
+    <!-- Button to create a new tag -->
+    <div class="mb-3 text-right">
+        <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#createTagModal">
+            <i class="fas fa-plus-circle"></i> Create New Tag
+        </button>
+    </div>
 
-    <table class="table table-striped table-bordered text-center">
-        <thead>
+    <!-- Tags Table -->
+    <table class="table table-striped table-bordered table-hover text-center">
+        <thead class="thead-dark">
             <tr>
                 <th>ID</th>
                 <th>Tag Name</th>
@@ -31,12 +35,12 @@
                         <button class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#editTagModal"
                                 onclick="loadTag('@tag.TagId')">
-                            Edit
+                            <i class="fas fa-edit"></i> Edit
                         </button>
                         <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#deleteTagModal"
                                 onclick="setDeleteTagId('@tag.TagId')">
-                            Delete
+                            <i class="fas fa-trash-alt"></i> Delete
                         </button>
                     </td>
                 </tr>
@@ -44,13 +48,14 @@
         </tbody>
     </table>
 </div>
+
 <!-- Edit Modal -->
-<div class="modal fade" id="editTagModal" tabindex="-1">
+<div class="modal fade" id="editTagModal" tabindex="-1" aria-labelledby="editTagModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit Tag</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <h5 class="modal-title" id="editTagModalLabel">Edit Tag</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="editTagForm">
@@ -70,25 +75,23 @@
     </div>
 </div>
 
-
 <!-- Create Modal -->
-<div class="modal fade" id="createTagModal" tabindex="-1">
+<div class="modal fade" id="createTagModal" tabindex="-1" aria-labelledby="createTagModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Create Tag</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <h5 class="modal-title" id="createTagModalLabel">Create Tag</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="createTagForm">
-                    
                     <div class="mb-3">
                         <label class="form-label">Tag Name</label>
                         <input type="text" class="form-control" name="TagName" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Note</label>
-                        <textarea class="form-control" name="Note" rows="3"></textarea> <!-- Added Note Field -->
+                        <textarea class="form-control" name="Note" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Create</button>
                 </form>
@@ -97,15 +100,13 @@
     </div>
 </div>
 
-
-
 <!-- Delete Modal -->
-<div class="modal fade" id="deleteTagModal" tabindex="-1">
+<div class="modal fade" id="deleteTagModal" tabindex="-1" aria-labelledby="deleteTagModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Confirm Delete</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <h5 class="modal-title" id="deleteTagModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 Are you sure you want to delete this tag?
@@ -142,6 +143,7 @@
                 location.reload();
             });
         });
+
         $("#editTagForm").submit(function (event) {
             event.preventDefault();
             var formData = $(this).serializeArray();
@@ -174,6 +176,5 @@
                 }
             });
         });
-
     </script>
 }

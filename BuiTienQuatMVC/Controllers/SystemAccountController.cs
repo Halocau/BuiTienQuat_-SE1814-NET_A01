@@ -39,7 +39,7 @@ namespace BuiTienQuatMVC.Controllers
             {
                 HttpContext.Session.SetInt32("UserId", 0);
                 HttpContext.Session.SetString("UserName", adminUsername);
-                HttpContext.Session.SetInt32("Role", 1);
+                HttpContext.Session.SetInt32("Role", 0);
                 return RedirectToAction("Index", "NewsArticle");
             }
             var user = _accountService.Authenticate(model.Email, model.Password);

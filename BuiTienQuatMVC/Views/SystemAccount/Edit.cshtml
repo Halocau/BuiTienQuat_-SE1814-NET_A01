@@ -1,7 +1,7 @@
 ﻿@model BuiTienQuatMVC.Models.SystemAccount
 
 @{
-    ViewData["Title"] = "Chỉnh sửa tài khoản";
+    ViewData["Title"] = "Update Account";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -15,20 +15,19 @@
     </div>
 
     <div class="mb-3">
-        <label asp-for="AccountName" class="form-label">Họ và Tên</label>
+        <label asp-for="AccountName" class="form-label">Name</label>
         <input asp-for="AccountName" class="form-control" />
         <span asp-validation-for="AccountName" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="AccountRole" class="form-label">Quyền</label>
+        <label asp-for="AccountRole" class="form-label">Role</label>
         <select asp-for="AccountRole" class="form-control">
-            <option value="0">Admin</option>
             <option value="1">Staff</option>
             <option value="2">Lecture</option>
         </select>
     </div>
 
-    <button type="submit" class="btn btn-success">Lưu thay đổi</button>
-    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
 </form>

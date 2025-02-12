@@ -11,28 +11,28 @@
     <style>
         /* CSS để định vị nút Logout */
         .logout-button {
-            position: fixed;
-            bottom: 643px;
-            right: 20px;
-            z-index: 1000;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        position: fixed;
+        bottom: 643px;
+        right: 20px;
+        z-index: 1000;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
         }
 
-            .logout-button:hover {
-                background-color: #c82333;
-            }
+        .logout-button:hover {
+        background-color: #c82333;
+        }
 
         .user-info {
-            margin-top: 10px;
+        margin-top: 10px;
         }
 
-            .user-info span {
-                margin-right: 10px;
-            }
+        .user-info span {
+        margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -41,21 +41,46 @@
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BuiTienQuatMVC</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-
+                        <!-- Admin -->
+                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 0)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ReportStatistic">ReportStatistic</a>
+                            </li>
+                        }
+                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 0)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SystemAccount">SystemAccount</a>
+                            </li>
+                        }
+                        <!--  Staff -->
                         @if (HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 1)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Category">Category</a>
                             </li>
                         }
-
-                        <!-- Hiển thị mục NewsArticle cho Lecturer = 2 và Staff =1 -->
-                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 1 || HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 2)
+                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 1)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ManageNewArticle">ManageNewArticle</a>
+                            </li>
+                        }
+                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 1)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Tag">Tag</a>
+                            </li>
+                        }
+                        
+                        <!-- Lecture -->
+                        @if ( HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 2)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="NewsArticle">NewsArticle</a>
@@ -63,14 +88,8 @@
                         }
 
                         <!-- Hiển thị mục SystemAccount nếu người dùng là Admin -->
-                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 0)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SystemAccount">SystemAccount</a>
-                            </li>
-                        }
-
-
+                        
+                       
                         @if (HttpContextAccessor.HttpContext.Session.GetString("UserName") != null)
                         {
                             <li class="nav-item user-info">

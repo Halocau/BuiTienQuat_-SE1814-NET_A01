@@ -34,7 +34,18 @@ namespace BuiTienQuatMVC.Controllers
         {
             return Redirect("/NewsArticle");
         }
-
+        public IActionResult Tag()
+        {
+            return Redirect("/Tag"); 
+        }
+        public IActionResult ManageNewArticle()
+        {
+            return Redirect("/NewsArticle/Manager");
+        }
+        public IActionResult ReportStatistic()
+        {
+            return Redirect("/NewsArticle/ReportStatistic");
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

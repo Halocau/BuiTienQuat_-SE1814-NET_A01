@@ -37,7 +37,11 @@ namespace BuiTienQuatMVC.Controllers
             return View(newsArticles);
         }
 
-
+        public ActionResult Manager()
+        {
+            var newsList = _newsArticleService.GetAllNewsArticles();
+            return View(newsList);
+        }
         //search
         public IActionResult Search(string? keyword)
         {
@@ -52,92 +56,112 @@ namespace BuiTienQuatMVC.Controllers
         // GET: NewsArticleController/Details/5
         //[AllowAnonymous] 
 
-        public ActionResult Detail(string id)
+        // GET: NewsArticleController/Detail/5
+        [HttpGet]
+        public JsonResult Detail(string id)
         {
-          
             if (id.IsNullOrEmpty())
             {
-                return NotFound();
+                return Json(new { success = false, message = "ID is required." });
             }
+
             var newsArticle = _newsArticleService.GetNewsArticleById(id);
             if (newsArticle == null)
             {
-                return NotFound();
+                return Json(new { success = false, message = "News article not found." });
             }
-            return View(newsArticle);
+
+            return Json(new
+            {
+                success = true,
+                newsArticleId = newsArticle.NewsArticleId,
+                newsTitle = newsArticle.NewsTitle,
+                headline = newsArticle.Headline,
+                newsContent = newsArticle.NewsContent,
+                newsSource = newsArticle.NewsSource,
+                categoryId = newsArticle.CategoryId,
+                newsStatus = newsArticle.NewsStatus,
+                tagIds = newsArticle.Tags // Giả sử bạn có trường TagIds trong model
+            });
         }
 
         // GET: NewsArticleController/Create
         public ActionResult Create()
         {
+            ViewBag.Categories = _categoryService.GetCategoriesActive(); // Đảm bảo không null
             return View();
         }
 
         // POST: NewsArticleController/Create
+        // POST: NewsArticleController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(NewsArticle newsArticle)
+        public IActionResult Create(NewsArticle newsArticle)
         {
+            short userID = (short)HttpContext.Session.GetInt32("UserId");
             if (ModelState.IsValid)
             {
+                if (string.IsNullOrWhiteSpace(newsArticle.NewsArticleId))
+                {
+                    newsArticle.NewsArticleId = Guid.NewGuid().ToString();
+                }
+                newsArticle.UpdatedById = null;
+                newsArticle.ModifiedDate = null;
+                newsArticle.CreatedDate = DateTime.Now;
+                newsArticle.NewsStatus = true;
+                newsArticle.CreatedById = userID;
                 _newsArticleService.AddNewsArticle(newsArticle);
                 return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                return View(newsArticle);
-            }
-        }
-        // GET: NewsArticleController/Edit/5
-        public ActionResult Edit(string id)
-        {
-            if (id.IsNullOrEmpty())
-            {
-                return NotFound();
-            }
-            var newsArticleEdit = _newsArticleService.GetNewsArticleById(id);
-            if (newsArticleEdit == null)
-            {
-                return NotFound();
-            }
-            return View(newsArticleEdit);
+            ViewBag.Categories = _categoryService.GetCategoriesActive();
+            return View(newsArticle);
         }
 
-        // POST: NewsArticleController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(string id, NewsArticle newsArticle)
+        // GET: NewsArticleController/Edit/5
+        public IActionResult Edit(string id)
         {
+            var newsArticle = _newsArticleService.GetNewsArticleById(id);
+            if (newsArticle == null)
+            {
+                return NotFound();
+            }
+            ViewBag.Categories = _categoryService.GetAllCategories();
+            return View(newsArticle);
+        }
+
+         [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(string id, NewsArticle newsArticle)
+        {
+            short userID = (short)HttpContext.Session.GetInt32("UserId");
             if (id != newsArticle.NewsArticleId)
             {
                 return NotFound();
             }
+
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _newsArticleService.UpdateNewsArticle(newsArticle);
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_newsArticleService.NewsArticleExists(newsArticle.NewsArticleId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                newsArticle.ModifiedDate = DateTime.Now;
+                newsArticle.NewsStatus = true;
+                newsArticle.UpdatedById = userID;
+                _newsArticleService.UpdateNewsArticle(newsArticle);
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Categories = _categoryService.GetCategoriesActive();
             return View(newsArticle);
         }
 
         // GET: NewsArticleController/Delete/5
-        public ActionResult Delete(int id)
+        // Xóa bài viết
+        public IActionResult Delete(string id)
         {
-            _newsArticleService.DeleteNewsArticle(id.ToString());
+            var newsArticle = _newsArticleService.GetNewsArticleById(id);
+            if (newsArticle == null)
+            {
+                return NotFound();
+            }
+
+            _newsArticleService.DeleteNewsArticle(id);
             return RedirectToAction(nameof(Index));
         }
 
@@ -199,6 +223,31 @@ namespace BuiTienQuatMVC.Controllers
 
             return View("Index", result);  // Trả về kết quả tìm kiếm cho trang Index
         }
+        [HttpGet]
+        public IActionResult ReportStatistic()
+        {
+            var news = _newsArticleService.GetAllNewsArticles();
+            return View(news);
+        }
 
+        [HttpPost]
+        public IActionResult GetNewsByDate(DateTime? startDate, DateTime? endDate)
+        {
+            var news = _newsArticleService.GetAllNewsArticles().AsQueryable();
+
+            if (startDate.HasValue)
+            {
+                news = news.Where(n => n.CreatedDate >= startDate.Value);
+            }
+
+            if (endDate.HasValue)
+            {
+                endDate = endDate.Value.Date.AddDays(1).AddTicks(-1);
+                news = news.Where(n => n.CreatedDate <= endDate.Value);
+            }
+
+            var filteredNews = news.OrderByDescending(n => n.CreatedDate).ToList();
+            return Json(filteredNews);
+        }
     }
 }
