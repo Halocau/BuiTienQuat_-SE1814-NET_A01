@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|g:\\c#\\learn record\\buitienquat_ se1814-net_a01\\buitienquatmvc\\views\\systemaccount\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|solutionrelative:buitienquatmvc\\views\\systemaccount\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|g:\\c#\\learn record\\buitienquat_ se1814-net_a01\\buitienquatmvc\\repositories\\itagrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|solutionrelative:buitienquatmvc\\repositories\\itagrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|g:\\c#\\learn record\\buitienquat_ se1814-net_a01\\buitienquatmvc\\controllers\\systemaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|solutionrelative:buitienquatmvc\\controllers\\systemaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|g:\\c#\\learn record\\buitienquat_ se1814-net_a01\\buitienquatmvc\\models\\systemaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|solutionrelative:buitienquatmvc\\models\\systemaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|g:\\c#\\learn record\\buitienquat_ se1814-net_a01\\buitienquatmvc\\repositories\\isystemaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|solutionrelative:buitienquatmvc\\repositories\\isystemaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Views\\SystemAccount\\Create.cshtml",
-              "RelativeDocumentMoniker": "BuiTienQuatMVC\\Views\\SystemAccount\\Create.cshtml",
-              "ToolTip": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Views\\SystemAccount\\Create.cshtml",
-              "RelativeToolTip": "BuiTienQuatMVC\\Views\\SystemAccount\\Create.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T07:55:15.2Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SystemAccount.cs",
-              "DocumentMoniker": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Models\\SystemAccount.cs",
-              "RelativeDocumentMoniker": "BuiTienQuatMVC\\Models\\SystemAccount.cs",
-              "ToolTip": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Models\\SystemAccount.cs",
-              "RelativeToolTip": "BuiTienQuatMVC\\Models\\SystemAccount.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T07:40:17.582Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SystemAccountController.cs",
-              "DocumentMoniker": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Controllers\\SystemAccountController.cs",
-              "RelativeDocumentMoniker": "BuiTienQuatMVC\\Controllers\\SystemAccountController.cs",
-              "ToolTip": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Controllers\\SystemAccountController.cs",
-              "RelativeToolTip": "BuiTienQuatMVC\\Controllers\\SystemAccountController.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAADwv5IAAAAAAAAAAAAAAA==",
+              "Title": "ISystemAccountRepository.cs",
+              "DocumentMoniker": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Repositories\\ISystemAccountRepository.cs",
+              "RelativeDocumentMoniker": "BuiTienQuatMVC\\Repositories\\ISystemAccountRepository.cs",
+              "ToolTip": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Repositories\\ISystemAccountRepository.cs",
+              "RelativeToolTip": "BuiTienQuatMVC\\Repositories\\ISystemAccountRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T07:32:36.833Z",
+              "WhenOpened": "2025-02-12T08:04:22.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ITagRepository.cs",
+              "DocumentMoniker": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Repositories\\ITagRepository.cs",
+              "RelativeDocumentMoniker": "BuiTienQuatMVC\\Repositories\\ITagRepository.cs",
+              "ToolTip": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Repositories\\ITagRepository.cs",
+              "RelativeToolTip": "BuiTienQuatMVC\\Repositories\\ITagRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T08:03:59.111Z",
               "EditorCaption": ""
             }
           ]
