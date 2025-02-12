@@ -1,6 +1,5 @@
 ﻿using BuiTienQuatMVC.Models;
-using System.Collections.Generic;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace BuiTienQuatMVC.Repositories
 {
@@ -68,6 +67,41 @@ namespace BuiTienQuatMVC.Repositories
         public IEnumerable<NewsArticle> GetNewsArticlesByCategory(short categoryId)
         {
             return _context.NewsArticles.Where(na => na.CategoryId == categoryId).ToList();
+        }
+
+        public List<string> GetTagsByNewsArticleId(string newsArticleId)
+        {
+
+            var article = _context.NewsArticles
+                .Where(n => n.NewsArticleId == newsArticleId)
+                .Select(n => n.Tags.Select(t => t.TagName).ToList()) // Lấy danh sách tên tag
+                .FirstOrDefault();
+
+            return article ?? new List<string>(); // Trả về danh sách rỗng nếu không có tag
+        }
+
+        public void main()
+        {
+            var tags = GetTagsByNewsArticleId("1");
+            foreach (var tag in tags)
+            {
+                System.Console.WriteLine(tag);
+            }
+        }
+
+        public string GetCreatedByName(string newsArticleId)
+        {
+            var newsArticle = _context.NewsArticles
+                .Include(na => na.CreatedBy) // Bao gồm thông tin về người tạo
+                .FirstOrDefault(na => na.NewsArticleId == newsArticleId);
+            // Nếu bài viết tồn tại và có thông tin người tạo, trả về tên người tạo
+            if (newsArticle != null && newsArticle.CreatedBy != null)
+            {
+                return newsArticle.CreatedBy.AccountName;
+            }
+
+            // Trả về "Unknown" nếu không tìm thấy hoặc không có thông tin người tạo
+            return "Unknown";
         }
     }
 }

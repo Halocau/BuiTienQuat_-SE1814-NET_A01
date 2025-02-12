@@ -1,4 +1,6 @@
 ﻿using BuiTienQuatMVC.Models;
+using BuiTienQuatMVC.Repositories;
+using BuiTienQuatMVC.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,72 +9,76 @@ namespace BuiTienQuatMVC.Controllers
     public class TagController : Controller
     {
         // GET: TagController
-        public ActionResult Index()
+        private readonly TagService _tagService;
+
+        public TagController(TagService tagService)
         {
-            //var tag = 
-            return View();
-        }
-   
-        // GET: TagController/Create
-        public ActionResult Create()
-        {
-            return View();
+            _tagService = tagService;
         }
 
-        // POST: TagController/Create
+        public IActionResult Index()
+        {
+            var tags = _tagService.GetAllTags();
+            return View(tags);
+        }
+        [HttpGet]
+        public IActionResult GetAllTags()
+        {
+            var tags = _tagService.GetAllTags();
+            return Json(tags);
+        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Tag tag)
+        public IActionResult Create(Tag tag)
+        {
+            if (ModelState.IsValid)
+            {
+                _tagService.AddTag(tag);
+                return RedirectToAction("Index");
+            }
+            return View(tag);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, [FromForm] Tag updatedTag)
+        {
+            var existingTag = _tagService.getTagById(id);
+            if (existingTag == null)
+            {
+                return Json(new { success = false, message = "Tag not found" });
+            }
+
+            if (ModelState.IsValid)
+            {
+                existingTag.TagName = updatedTag.TagName;
+                existingTag.Note = updatedTag.Note;
+                _tagService.UpdateTag(existingTag);
+                return Json(new { success = true });
+            }
+            return Json(new { success = false, message = "Invalid data" });
+        }
+        [HttpGet]
+        public IActionResult GetTagById(int id)
+        {
+            var tag = _tagService.getTagById(id);
+            if (tag == null)
+            {
+                return NotFound();
+            }
+            return Json(tag);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                _tagService.DeleteTag(id);
+                return Json(new { success = true });
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
-            }
-        }
-
-        // GET: TagController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: TagController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: TagController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: TagController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
+                return Json(new { success = false, message = ex.Message });
             }
         }
     }

@@ -9,5 +9,6 @@ namespace BuiTienQuatMVC.ViewModel
         public string NewsSource { get; set; }
         public string CategoryName { get; set; }
         public string CreatedByName { get; set; }
+        public List<string> Tags { get; set; }  // Danh sách tên tag
     }
 }

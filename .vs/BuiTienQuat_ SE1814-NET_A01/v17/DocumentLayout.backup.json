@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|g:\\c#\\learn record\\buitienquat_ se1814-net_a01\\buitienquatmvc\\views\\systemaccount\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|solutionrelative:buitienquatmvc\\views\\systemaccount\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|g:\\c#\\learn record\\buitienquat_ se1814-net_a01\\buitienquatmvc\\views\\newsarticle\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|solutionrelative:buitienquatmvc\\views\\newsarticle\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|g:\\c#\\learn record\\buitienquat_ se1814-net_a01\\buitienquatmvc\\controllers\\systemaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|solutionrelative:buitienquatmvc\\controllers\\systemaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|g:\\c#\\learn record\\buitienquat_ se1814-net_a01\\buitienquatmvc\\views\\newsarticle\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|solutionrelative:buitienquatmvc\\views\\newsarticle\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|g:\\c#\\learn record\\buitienquat_ se1814-net_a01\\buitienquatmvc\\models\\systemaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|solutionrelative:buitienquatmvc\\models\\systemaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|g:\\c#\\learn record\\buitienquat_ se1814-net_a01\\buitienquatmvc\\controllers\\newsarticlecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AFDC1D1-B190-4AF9-8ED2-4F635C4AE1F5}|BuiTienQuatMVC\\BuiTienQuatMVC.csproj|solutionrelative:buitienquatmvc\\controllers\\newsarticlecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,46 +21,46 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 208,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Views\\SystemAccount\\Create.cshtml",
-              "RelativeDocumentMoniker": "BuiTienQuatMVC\\Views\\SystemAccount\\Create.cshtml",
-              "ToolTip": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Views\\SystemAccount\\Create.cshtml",
-              "RelativeToolTip": "BuiTienQuatMVC\\Views\\SystemAccount\\Create.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAWAAAAAAAAAA==",
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Views\\NewsArticle\\Details.cshtml",
+              "RelativeDocumentMoniker": "BuiTienQuatMVC\\Views\\NewsArticle\\Details.cshtml",
+              "ToolTip": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Views\\NewsArticle\\Details.cshtml",
+              "RelativeToolTip": "BuiTienQuatMVC\\Views\\NewsArticle\\Details.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-12T07:55:15.2Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SystemAccount.cs",
-              "DocumentMoniker": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Models\\SystemAccount.cs",
-              "RelativeDocumentMoniker": "BuiTienQuatMVC\\Models\\SystemAccount.cs",
-              "ToolTip": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Models\\SystemAccount.cs",
-              "RelativeToolTip": "BuiTienQuatMVC\\Models\\SystemAccount.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T07:40:17.582Z",
+              "WhenOpened": "2025-02-12T13:51:49.055Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SystemAccountController.cs",
-              "DocumentMoniker": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Controllers\\SystemAccountController.cs",
-              "RelativeDocumentMoniker": "BuiTienQuatMVC\\Controllers\\SystemAccountController.cs",
-              "ToolTip": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Controllers\\SystemAccountController.cs",
-              "RelativeToolTip": "BuiTienQuatMVC\\Controllers\\SystemAccountController.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAADwv5IAAAAAAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Views\\NewsArticle\\Index.cshtml",
+              "RelativeDocumentMoniker": "BuiTienQuatMVC\\Views\\NewsArticle\\Index.cshtml",
+              "ToolTip": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Views\\NewsArticle\\Index.cshtml",
+              "RelativeToolTip": "BuiTienQuatMVC\\Views\\NewsArticle\\Index.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-12T13:51:34.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NewsArticleController.cs",
+              "DocumentMoniker": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Controllers\\NewsArticleController.cs",
+              "RelativeDocumentMoniker": "BuiTienQuatMVC\\Controllers\\NewsArticleController.cs",
+              "ToolTip": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\Controllers\\NewsArticleController.cs",
+              "RelativeToolTip": "BuiTienQuatMVC\\Controllers\\NewsArticleController.cs",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAAAKkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T07:32:36.833Z",
+              "WhenOpened": "2025-02-12T13:50:54.96Z",
               "EditorCaption": ""
             }
           ]

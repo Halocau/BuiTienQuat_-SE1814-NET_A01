@@ -154,6 +154,11 @@ namespace BuiTienQuatMVC.Controllers
                 return NotFound();
             }
 
+            //get tag
+            var tags= _newsArticleService.GetTagsByNewsArticleId(id);
+
+            var systemAccountName = _newsArticleService.GetCreatedByName(id);
+
             // Get category name
             // Khai báo categoryName trước
             string categoryName = null;
@@ -172,7 +177,9 @@ namespace BuiTienQuatMVC.Controllers
                 CreatedDate = newsArticle.CreatedDate,
                 NewsContent = newsArticle.NewsContent,
                 NewsSource = newsArticle.NewsSource,
-                CategoryName = categoryName
+                CategoryName = categoryName,
+                Tags = tags,
+                CreatedByName = systemAccountName
             };
             return View(model);
         }

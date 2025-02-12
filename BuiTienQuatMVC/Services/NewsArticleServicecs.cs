@@ -52,5 +52,14 @@ namespace BuiTienQuatMVC.Services
         {
             return _newsArticleRepository.GetNewsArticlesByCategory(categoryId);
         }
+
+        public List<string> GetTagsByNewsArticleId(string newsArticleId)
+        {
+            return _newsArticleRepository.GetTagsByNewsArticleId(newsArticleId);
+        }
+        public string GetCreatedByName(string newsArticleId)
+        {
+            return _newsArticleRepository.GetCreatedByName(newsArticleId);
+        }
     }
 }

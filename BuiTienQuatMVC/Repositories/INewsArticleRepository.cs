@@ -14,5 +14,11 @@ namespace BuiTienQuatMVC.Repositories
         IEnumerable<NewsArticle> SearchNewsArticles(string keyword);
 
         public IEnumerable<NewsArticle> GetNewsArticlesByCategory(short categoryId);
+
+        //truy xuất tag theo id bài viết
+        public List<string> GetTagsByNewsArticleId(string newsArticleId);
+        public string GetCreatedByName(string newsArticleId);
+
+
     }
 }

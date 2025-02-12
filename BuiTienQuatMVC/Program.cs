@@ -34,6 +34,11 @@ builder.Services.AddScoped<NewsArticleServicecs>();
 builder.Services.AddScoped<ISystemAccountRepository, SystemAccountRepository>();
 builder.Services.AddScoped<SystemAccountService>();
 
+
+//tag
+builder.Services.AddScoped<ITagRepository, TagRepository>();
+builder.Services.AddScoped<TagService>();
+
 //Cấu hình Session
 builder.Services.AddSession(options =>
 {

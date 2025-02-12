@@ -7,8 +7,14 @@
 <div class="container mt-4">
     <h2>@Model.NewsTitle</h2>
     <p style="color: black; background-color: gold; display: inline-block;">Category: @Model.CategoryName</p>
-
-    <h5>Create person: @Model.CreatedByName</h5>
+    <p>
+        <strong>Tag:</strong>
+        @foreach (var tag in Model.Tags)
+        {
+            <span class='badge bg-primary'>@tag, </span>
+        }
+    </p>
+    <p><strong>Create person:</strong> @Model.CreatedByName</p>
     <p><strong>CreatedDate:</strong> @Model.CreatedDate</p>
     <p><strong>NewsSource:</strong> @Model.NewsSource</p>
 
