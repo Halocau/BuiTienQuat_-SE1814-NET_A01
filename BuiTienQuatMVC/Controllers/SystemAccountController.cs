@@ -4,6 +4,7 @@ using BuiTienQuatMVC.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 
 namespace BuiTienQuatMVC.Controllers
 {
@@ -29,7 +30,18 @@ namespace BuiTienQuatMVC.Controllers
             {
                 return View(model);
             }
-         
+            var conf = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            var adminUsername = conf.GetSection("Admin").GetSection("Username").Value;
+            var adminEmail = conf.GetSection("Admin").GetSection("Email").Value;
+            var adminPassword = conf.GetSection("Admin").GetSection("Password").Value;
+
+            if (model.Email == adminEmail && model.Password == adminPassword)
+            {
+                HttpContext.Session.SetInt32("UserId", 0);
+                HttpContext.Session.SetString("UserName", adminUsername);
+                HttpContext.Session.SetInt32("Role", 1);
+                return RedirectToAction("Index", "NewsArticle");
+            }
             var user = _accountService.Authenticate(model.Email, model.Password);
             if (user == null)
             {
