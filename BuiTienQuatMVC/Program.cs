@@ -49,12 +49,12 @@ app.UseSession();
 app.UseAuthorization();
 app.UseAuthentication();
 // Khởi tạo dữ liệu admin
-using (var scope = app.Services.CreateScope())
-{
-    var context = scope.ServiceProvider.GetRequiredService<FunewsManagementContext>();
-    var config = scope.ServiceProvider.GetRequiredService<IConfiguration>();
-    AdminAccount.SeedAdminAccount(context, config);
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    var context = scope.ServiceProvider.GetRequiredService<FunewsManagementContext>();
+//    var config = scope.ServiceProvider.GetRequiredService<IConfiguration>();
+//    AdminAccount.SeedAdminAccount(context, config);
+//}
 
 
 // Configure the HTTP request pipeline.

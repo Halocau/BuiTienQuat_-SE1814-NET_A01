@@ -265,3 +265,8 @@ G:\C#\Learn record\BuiTienQuat_ SE1814-NET_A01\BuiTienQuatMVC\bin\Debug\net8.0\r
 G:\C#\Learn record\BuiTienQuat_ SE1814-NET_A01\BuiTienQuatMVC\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 G:\C#\Learn record\BuiTienQuat_ SE1814-NET_A01\BuiTienQuatMVC\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 G:\C#\Learn record\BuiTienQuat_ SE1814-NET_A01\BuiTienQuatMVC\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+G:\C#\Learn record\BuiTienQuat_ SE1814-NET_A01\BuiTienQuatMVC\bin\Debug\net8.0\BuiTienQuatMVC.staticwebassets.endpoints.json
+G:\C#\Learn record\BuiTienQuat_ SE1814-NET_A01\BuiTienQuatMVC\obj\Debug\net8.0\BuiTienQuatMVC.sourcelink.json
+G:\C#\Learn record\BuiTienQuat_ SE1814-NET_A01\BuiTienQuatMVC\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+G:\C#\Learn record\BuiTienQuat_ SE1814-NET_A01\BuiTienQuatMVC\obj\Debug\net8.0\staticwebassets\msbuild.BuiTienQuatMVC.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+G:\C#\Learn record\BuiTienQuat_ SE1814-NET_A01\BuiTienQuatMVC\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

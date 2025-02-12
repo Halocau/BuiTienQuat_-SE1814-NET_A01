@@ -23,6 +23,10 @@ namespace BuiTienQuatMVC.Repositories
 
         public void Add(SystemAccount account)
         {
+            short maxId = _context.SystemAccounts.Max(a => (short?)a.AccountId) ?? 0;
+            // Tăng giá trị ID lên 1
+            account.AccountId = (short)(maxId + 1);
+
             _context.SystemAccounts.Add(account);
             _context.SaveChanges();
         }

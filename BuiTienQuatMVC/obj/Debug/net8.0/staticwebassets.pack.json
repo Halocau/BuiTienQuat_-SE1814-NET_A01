@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BuiTienQuatMVC.bundle.scp.css",
-      "PackagePath": "staticwebassets\\BuiTienQuatMVC.bundle.scp.css"
+      "PackagePath": "staticwebassets\\BuiTienQuatMVC.vd805zkwi6.bundle.scp.css"
     },
     {
       "Id": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\wwwroot\\css\\site.css",
@@ -243,6 +243,10 @@
     {
       "Id": "G:\\C#\\Learn record\\BuiTienQuat_ SE1814-NET_A01\\BuiTienQuatMVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BuiTienQuatMVC.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BuiTienQuatMVC.Microsoft.AspNetCore.StaticWebAssets.props",

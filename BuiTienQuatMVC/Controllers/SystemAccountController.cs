@@ -111,7 +111,23 @@ namespace BuiTienQuatMVC.Controllers
             {
                 try
                 {
-                    _accountService.UpdateSystemAccount(account);
+                    var existingAccount = _accountService.GetSystemAccountById(id);
+                    if (existingAccount == null)
+                    {
+                        return NotFound();
+                    }
+                    // Cập nhật từng trường cần thiết
+                    existingAccount.AccountName = account.AccountName;
+                    existingAccount.AccountEmail = account.AccountEmail;
+                    existingAccount.AccountRole = account.AccountRole;
+
+                    // Chỉ cập nhật mật khẩu nếu người dùng nhập mới
+                    if (!string.IsNullOrEmpty(account.AccountPassword))
+                    {
+                        existingAccount.AccountPassword = account.AccountPassword;
+                    }
+
+                    _accountService.UpdateSystemAccount(existingAccount);
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
