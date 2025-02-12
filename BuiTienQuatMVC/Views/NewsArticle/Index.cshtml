@@ -1,0 +1,131 @@
+﻿@model IEnumerable<BuiTienQuatMVC.Models.NewsArticle>
+
+@{
+	ViewData["Title"] = "Index";
+	
+	var sessionUserName = Context.Session.GetString("UserName");
+}
+<p>Session UserName: @sessionUserName</p>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewData["Title"]</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		body {
+			background-color: #f8f9fa;
+		}
+
+		.category-list {
+			list-style: none;
+			padding: 0;
+		}
+
+			.category-list li {
+				padding: 10px;
+				font-size: 18px;
+				display: flex;
+				align-items: center;
+			}
+
+				.category-list li i {
+					color: #28a745;
+					margin-right: 8px;
+				}
+
+		.news-card {
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			overflow: hidden;
+			background: white;
+			transition: 0.3s;
+		}
+
+			.news-card:hover {
+				box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+			}
+
+			.news-card img {
+				width: 100%;
+				height: 180px;
+				object-fit: cover;
+			}
+
+			.news-card .badge {
+				background: #ff9800;
+				padding: 5px 10px;
+				font-size: 14px;
+				border-radius: 5px;
+			}
+
+			.news-card h5 {
+				font-size: 18px;
+				font-weight: bold;
+				margin: 10px 0;
+			}
+
+			.news-card p {
+				font-size: 14px;
+				color: #666;
+			}
+	</style>
+</head>
+<body>
+	<div class="container mt-4">
+		<!-- search -->
+		<form asp-action="Search" asp-controller="NewsArticle" method="get" class="mb-4">
+			<div class="input-group">
+				<input type="search" name="keyword" class="form-control" placeholder="Tìm kiếm tin tức..." />
+				<div class="input-group-append">
+					<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+				</div>
+			</div>
+		</form>
+		<div class="row">
+			<!-- Danh mục bên trái -->
+			<div class="col-md-3">
+				<h4>📌 Category</h4>
+				<ul class="category-list">
+					@foreach (var category in ViewData["Categories"] as List<Category>)
+					{
+						<li>
+							<a href="@Url.Action("SearchCategory", "NewsArticle", new { loai = category.CategoryId })">
+								<i class="bi bi-apple"></i> @category.CategoryName
+							</a>
+						</li>
+					}
+				</ul>
+			</div>
+
+
+
+			<!-- Tin tức bên phải -->
+			<div class="col-md-9">
+				<div class="row">
+					@foreach (var article in Model)
+					{
+						<div class="col-md-4">
+							<div class="news-card">
+								<div class="p-3">
+									<span class="badge">@article.NewsSource</span>
+									<a href="@(Context.Session.GetString("UserName") != null 
+										? Url.Action("Details", "NewsArticle", new { id = article.NewsArticleId })
+										: Url.Action("Login", "SystemAccount"))">
+										<h5>@article.NewsTitle</h5>
+									</a>
+
+									<p>@article.CreatedDate</p>
+								</div>
+							</div>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

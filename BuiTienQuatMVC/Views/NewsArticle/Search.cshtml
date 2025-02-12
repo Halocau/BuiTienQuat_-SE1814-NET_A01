@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BuiTienQuatMVC.Models.NewsArticle>
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h2>Result Search</h2>
+
+@if (!Model.Any())
+{
+    <p>Không tìm thấy kết quả nào.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var article in Model)
+        {
+            <div class="col-md-4">
+                <div class="news-card">
+                    <div class="p-3">
+                        <span class="badge">@article.NewsSource</span>
+                        <a asp-action="Detail" asp-route-id="@article.NewsArticleId">
+                            <h5>@article.NewsTitle</h5>
+                        </a>
+                        
+                        <p>@(article.CreatedDate?.ToString("dd/MM/yyyy") ?? "Không xác định")</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

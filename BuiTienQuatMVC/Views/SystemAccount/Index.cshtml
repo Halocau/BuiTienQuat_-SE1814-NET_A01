@@ -1,0 +1,99 @@
+﻿@model IEnumerable<BuiTienQuatMVC.Models.SystemAccount>
+
+@{
+    ViewData["Title"] = "System Account";
+}
+
+<h2 class="text-center">Quản lý Tài Khoản</h2>
+
+<!-- Thanh tìm kiếm -->
+<form method="get" asp-action="Search" class="d-flex mb-3">
+    <input type="text" name="query" class="form-control me-2" placeholder="Tìm kiếm theo tên hoặc email..." />
+    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+</form>
+
+
+<!-- Nút tạo mới tài khoản -->
+@* <button class="btn btn-success mb-3" onclick="openCreateModal()">+ Thêm tài khoản</button> *@
+<a asp-action="Create" class="btn btn-success mb-3">+ Thêm tài khoản</a>
+
+<!-- Bảng danh sách tài khoản -->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th><a href="@Url.Action("Sort", new { orderBy = "id", ascending = true })">ID ↑</a> | <a href="@Url.Action("Sort", new { orderBy = "id", ascending = false })">↓</a></th>
+            <th><a href="@Url.Action("Sort", new { orderBy = "email", ascending = true })">Email ↑</a> | <a href="@Url.Action("Sort", new { orderBy = "email", ascending = false })">↓</a></th>
+            <th>Họ và Tên</th>
+            <th><a href="@Url.Action("Sort", new { orderBy = "role", ascending = true })">Quyền ↑</a> | <a href="@Url.Action("Sort", new { orderBy = "role", ascending = false })">↓</a></th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var account in Model)
+        {
+            <tr id="account-@account.AccountId">
+                <td>@account.AccountId</td>
+                <td>@account.AccountEmail</td>
+                <td>@account.AccountName</td>
+                <td>@account.AccountRole</td>
+                <td>
+                    @* <button class="btn btn-warning btn-sm" onclick="openEditModal(@account.AccountId)">Sửa</button> *@
+                    <a asp-action="Edit" asp-route-id="@account.AccountId" class="btn btn-warning btn-sm">Sửa</a>
+
+                    <a asp-action="Delete" asp-route-id="@account.AccountId" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Popup Tạo Mới -->
+<div class="modal fade" id="createCategoryModal" tabindex="-1" aria-labelledby="createCategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createCategoryModalLabel">Create Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="createCategoryFormContainer"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Popup Chỉnh Sửa -->
+<div id="editModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Chỉnh sửa tài khoản</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="editContent">
+                <!-- Nội dung form sẽ được load vào đây -->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+     function openCreateModal() {
+            $.get('@Url.Action("Create", "SystemAccount")', function (data) {
+                $('#createCategoryFormContainer').html(data);
+                $('#createCategoryModal').modal('show');
+            });
+        }
+
+    // Mở modal chỉnh sửa tài khoản
+    function openEditModal(id) {
+        $.get('@Url.Action("Edit", new { id = "__id__" })'.replace('__id__', id), function (data) {
+            $('#editContent').html(data);
+            $('#editModal').modal('show');
+        });
+    }
+
+
+</script>

@@ -1,0 +1,111 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BuiTienQuatMVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BuiTienQuatMVC.styles.css" asp-append-version="true" />
+    <style>
+        /* CSS để định vị nút Logout */
+        .logout-button {
+            position: fixed;
+            bottom: 643px;
+            right: 20px;
+            z-index: 1000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .logout-button:hover {
+                background-color: #c82333;
+            }
+
+        .user-info {
+            margin-top: 10px;
+        }
+
+            .user-info span {
+                margin-right: 10px;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BuiTienQuatMVC</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+
+                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 1)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Category">Category</a>
+                            </li>
+                        }
+
+                        <!-- Hiển thị mục NewsArticle cho Lecturer = 2 và Staff =1 -->
+                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 1 || HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 2)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="NewsArticle">NewsArticle</a>
+                            </li>
+                        }
+
+                        <!-- Hiển thị mục SystemAccount nếu người dùng là Admin -->
+                        @if (HttpContextAccessor.HttpContext.Session.GetInt32("Role") == 0)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SystemAccount">SystemAccount</a>
+                            </li>
+                        }
+
+
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("UserName") != null)
+                        {
+                            <li class="nav-item user-info">
+                                <span>Hello, @HttpContextAccessor.HttpContext.Session.GetString("UserName")</span>
+                                <form action="@Url.Action("Logout", "SystemAccount")" method="post" class="logout-button">
+                                    <button type="submit" class="btn btn-danger">Logout</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SystemAccount" asp-action="Login">Login</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - BuiTienQuatMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

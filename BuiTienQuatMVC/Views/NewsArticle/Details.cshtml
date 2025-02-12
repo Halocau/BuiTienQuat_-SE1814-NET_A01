@@ -1,0 +1,23 @@
+﻿@model BuiTienQuatMVC.ViewModel.NewsArticleDetailViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-4">
+    <h2>@Model.NewsTitle</h2>
+    <p style="color: black; background-color: gold; display: inline-block;">Category: @Model.CategoryName</p>
+
+    <h5>Create person: @Model.CreatedByName</h5>
+    <p><strong>CreatedDate:</strong> @Model.CreatedDate</p>
+    <p><strong>NewsSource:</strong> @Model.NewsSource</p>
+
+    
+
+    <div class="mt-4">
+        <h5>Content:</h5>
+        <p>@Model.NewsContent</p>
+    </div>
+    <!-- Thêm nút quay lại -->
+    <button onclick="window.history.back();" class="btn btn-secondary mt-4">back</button>
+</div>
