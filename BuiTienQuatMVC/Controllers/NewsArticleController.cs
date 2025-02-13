@@ -54,8 +54,6 @@ namespace BuiTienQuatMVC.Controllers
 
             return View("Index", result);
         }
-        // GET: NewsArticleController/Details/5
-        //[AllowAnonymous] 
 
         // GET: NewsArticleController/Detail/5
         [HttpGet]
@@ -93,8 +91,7 @@ namespace BuiTienQuatMVC.Controllers
             return View();
         }
 
-        // POST: NewsArticleController/Create
-        // POST: NewsArticleController/Create
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(NewsArticle newsArticle)
@@ -107,7 +104,7 @@ namespace BuiTienQuatMVC.Controllers
                 //    newsArticle.NewsArticleId = Guid.NewGuid().ToString();
                 //}
                 newsArticle.UpdatedById = userID;
-                newsArticle.ModifiedDate = null;
+                newsArticle.ModifiedDate = DateTime.Now;
                 newsArticle.CreatedDate = DateTime.Now;
                 newsArticle.NewsStatus = true;
                 newsArticle.CreatedById = userID;
