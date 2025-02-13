@@ -4,6 +4,7 @@ using BuiTienQuatMVC.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -101,11 +102,11 @@ namespace BuiTienQuatMVC.Controllers
             short userID = (short)HttpContext.Session.GetInt32("UserId");
             if (ModelState.IsValid)
             {
-                if (string.IsNullOrWhiteSpace(newsArticle.NewsArticleId))
-                {
-                    newsArticle.NewsArticleId = Guid.NewGuid().ToString();
-                }
-                newsArticle.UpdatedById = null;
+                //if (string.IsNullOrWhiteSpace(newsArticle.NewsArticleId))
+                //{
+                //    newsArticle.NewsArticleId = Guid.NewGuid().ToString();
+                //}
+                newsArticle.UpdatedById = userID;
                 newsArticle.ModifiedDate = null;
                 newsArticle.CreatedDate = DateTime.Now;
                 newsArticle.NewsStatus = true;
@@ -115,6 +116,7 @@ namespace BuiTienQuatMVC.Controllers
             }
             ViewBag.Categories = _categoryService.GetCategoriesActive();
             return View(newsArticle);
+
         }
 
         // GET: NewsArticleController/Edit/5

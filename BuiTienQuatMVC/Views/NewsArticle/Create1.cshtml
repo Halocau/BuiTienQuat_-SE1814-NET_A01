@@ -1,0 +1,35 @@
+﻿@model NewsArticle
+
+<h2>Tạo bài viết mới</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="NewsTitle">Title</label>
+        <input type="text" id="NewsTitle" name="NewsTitle" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="Headline">Headline</label>
+        <input type="text" id="Headline" name="Headline" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="NewsContent">NewsContent</label>
+        <textarea id="NewsContent" name="NewsContent" class="form-control" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="NewsSource">NewsSource</label>
+        <textarea id="NewsSource" name="NewsSource" class="form-control" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="CategoryId">Danh mục</label>
+        <select id="CategoryId" name="CategoryId" class="form-control" required>
+            @foreach (var category in ViewBag.Categories as List<Category>)
+            {
+                <option value="@category.CategoryId">@category.CategoryName</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Lưu bài viết</button>
+</form>
