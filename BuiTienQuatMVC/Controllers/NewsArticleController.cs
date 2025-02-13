@@ -112,7 +112,7 @@ namespace BuiTienQuatMVC.Controllers
                 newsArticle.NewsStatus = true;
                 newsArticle.CreatedById = userID;
                 _newsArticleService.AddNewsArticle(newsArticle);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Manager));
             }
             ViewBag.Categories = _categoryService.GetCategoriesActive();
             return View(newsArticle);
@@ -147,7 +147,7 @@ namespace BuiTienQuatMVC.Controllers
                 newsArticle.NewsStatus = true;
                 newsArticle.UpdatedById = userID;
                 _newsArticleService.UpdateNewsArticle(newsArticle);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Manager));
             }
             ViewBag.Categories = _categoryService.GetCategoriesActive();
             return View(newsArticle);
@@ -164,7 +164,7 @@ namespace BuiTienQuatMVC.Controllers
             }
 
             _newsArticleService.DeleteNewsArticle(id);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Manager));
         }
 
 
